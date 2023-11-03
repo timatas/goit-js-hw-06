@@ -24,7 +24,8 @@ function createBoxes(amount) {
     color = getRandomHexColor();
   }
   const markup = arrayDiv.join("");
-  boxes.innerHTML = markup;
+  // boxes.innerHTML = markup;
+  boxes.insertAdjacentHTML("beforeend", markup);
 }
 const destroyBtn = document.querySelector("button[data-destroy]");
 destroyBtn.addEventListener("click", destroyBoxes);
