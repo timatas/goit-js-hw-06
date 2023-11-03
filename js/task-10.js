@@ -21,6 +21,7 @@ function createBoxes(amount) {
     ] = `<div class = "div-item" style = "width: ${width}px; height: ${height}px; background-color: ${color}"></div>`;
     width += 10;
     height += 10;
+    color = getRandomHexColor();
   }
   const markup = arrayDiv.join("");
   boxes.innerHTML = markup;
