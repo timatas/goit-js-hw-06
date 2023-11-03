@@ -7,6 +7,7 @@ const changeColor = (evt) => {
   colorBody.style.backgroundColor = color;
   span.textContent = color;
 };
+
 button.addEventListener("click", changeColor);
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)

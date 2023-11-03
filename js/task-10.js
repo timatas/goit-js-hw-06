@@ -1,20 +1,36 @@
 const controls = document.querySelector("#controls");
-console.log(controls);
-const input = document.querySelectorAll("input");
-console.log(input);
-const createBtn = document.querySelectorAll("button");
-console.log(createBtn);
+const input = document.querySelector("input");
+const createBtn = document.querySelector("button");
 const boxes = document.querySelector("#boxes");
-console.log(boxes);
 
-const htmlDiv = `<div class = "div-item" style = "width: 30px; height: 30px; background-color: red"></div>`;
-boxes.innerHTML += htmlDiv;
-
-function createBoxes(amount) {
-  return;
+createBtn.addEventListener("click", onCreateBtn);
+function onCreateBtn(evt) {
+  createBoxes(input.value);
 }
-
-function destroyBoxes() {}
+function createBoxes(amount) {
+  let style = {
+    width: 30,
+    height: 30,
+    color: getRandomHexColor(),
+  };
+  let { width, height, color } = style;
+  let arrayDiv = [];
+  for (let i = 1; i <= amount; i++) {
+    arrayDiv[
+      i
+    ] = `<div class = "div-item" style = "width: ${width}px; height: ${height}px; background-color: ${color}"></div>`;
+    width += 10;
+    height += 10;
+  }
+  const markup = arrayDiv.join("");
+  boxes.innerHTML = markup;
+}
+const destroyBtn = document.querySelector("button[data-destroy]");
+destroyBtn.addEventListener("click", destroyBoxes);
+function destroyBoxes() {
+  boxes.innerHTML = "";
+  input.value = "";
+}
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
