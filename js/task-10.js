@@ -35,6 +35,8 @@ destroyBtn.addEventListener("click", destroyBoxes);
 function destroyBoxes() {
   boxes.innerHTML = "";
   input.value = "";
+  width = style.width;
+  height = style.height;
 }
 
 function getRandomHexColor() {
